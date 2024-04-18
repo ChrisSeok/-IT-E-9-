@@ -1,0 +1,15 @@
+package step1;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class SimpleConnectionMaker {
+	public abstract Connection getConnection() throws Exception{
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		String id = "root";
+		String pw = "seok99";
+		String JDBC_URL = "jdbc:mysql://localhost:3306/library?characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true";
+		Connection con = DriverManager.getConnection(JDBC_URL,id,pw);
+		return con;
+	}
+}
